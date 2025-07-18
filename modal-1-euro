@@ -1,0 +1,449 @@
+{% if product.handle == "dual-care-fussspray-1-euro" %}
+<style>
+html, body {
+  height: 100%;
+}
+
+#diathera-modal {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: #565C7C;
+  padding: 2rem;
+  max-width: 800px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  font-family: 'Harmonia Sans', sans-serif;
+  color: #F4F1E7;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+}
+
+#diathera-modal h3, #diathera-modal h4 {
+  color: #F4F1E7;
+}
+
+.diathera-step { display: none; }
+.diathera-step.active { display: block; }
+
+.diathera-btn {
+  background-color: #F4F1E7;
+  color: #565C7C;
+  padding: 14px 24px;
+  border: 1px solid #565C7C;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 100%;
+  font-family: 'Harmonia Sans', sans-serif;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.diathera-btn:hover { transform: scale(1.05); }
+.diathera-btn-secondary {
+  background-color: #ccc;
+  color: #333;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  padding: 14px 24px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 100%;
+  font-family: 'Harmonia Sans', sans-serif;
+  font-weight: normal;
+  transition: none;
+}
+
+#open-diathera-modal.diathera-btn {
+  background-color: #F4F1E7;
+  color: #565C7C;
+  font-weight: bold;
+}
+
+#open-diathera-modal {
+  background-color: #FF7A00 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+#open-diathera-modal:hover {
+  background-color: #e96a00 !important;
+  transform: scale(1.05);
+}
+
+.diathera-option {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #F4F1E7;
+  color: #565C7C;
+  border-radius: 6px;
+  font-family: 'Harmonia Sans', sans-serif;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+.diathera-option input { margin-right: 8px; cursor: pointer; }
+.diathera-option label { display: block; cursor: pointer; }
+
+.diathera-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #F4F1E7;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+}
+
+.diathera-info-box {
+  background-color: #F4F1E7;
+  color: #565C7C;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+  font-size: 100%;
+  font-family: 'Harmonia Sans', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  margin-left: 10px;
+  opacity: 0.7;
+}
+
+#interval-select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #F4F1E7;
+  color: #565C7C;
+  font-family: 'Harmonia Sans', sans-serif;
+  font-size: 100%;
+}
+
+@media (max-width: 768px) {
+  body.modal-open { overflow: hidden; }
+
+  #diathera-modal {
+    width: 100vw;
+    max-width: 100vw;
+    height: auto;
+    max-height: 95vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+}
+</style>
+
+<div style="position: relative; display: inline-block; width: 100%; z-index: 9998;">
+  <button id="open-diathera-modal" class="diathera-btn">Jetzt Spray ab 1 € auswählen</button>
+
+  <div id="diathera-modal">
+    <div class="diathera-close" onclick="closeModal()">×</div>
+
+    <!-- Step 1 -->
+    <div id="step-1" class="diathera-step active">
+      <h3>1. Wähle die Packungsgröße</h3>
+
+<!-- AUSVERKAUFTES 5er SET -->
+<div class="diathera-option" style="background-color: #e0e0e0; color: #999;">
+  <label style="color: #999;">
+    5 Sprays 85,99 € <span class="strikethrough">129,99 €</span> (35 % Rabatt)<br>
+    <p class="sh-cart-count">🚫 Vorübergehend nicht vorbestellbar – wir möchten, dass alle versorgt werden.</p>
+  </label>
+</div>
+      <div class="diathera-option" onclick="selectRadio(this)">
+        <label><input type="radio" name="size" value="3m" checked> 3 Sprays 54,99 € <span class="strikethrough">79,99 €</span> (31 % Rabatt)</label>
+        <div class="sh-cart-counter-container" style="margin-top: 8px;">
+          <svg width="15" height="15" aria-hidden="true" class="sh-circle-svg">
+            <circle cx="7.5" cy="7.5" r="7.5" fill="#ff0000"></circle>
+            <circle cx="7.5" cy="7.5" r="4" fill="#ff0000"></circle>
+          </svg>
+          <p class="sh-cart-count">Limitiertes Vorbestell Kontingent: Heute noch <span data-cart-count="3m">–</span>x vorbestellbar</p>
+        </div>
+      </div>
+
+      <div class="diathera-option" onclick="selectRadio(this)">
+        <label><input type="radio" name="size" value="1m"> 1 Spray 29,99 €</label>
+        <div class="sh-cart-counter-container" style="margin-top: 8px;">
+          <svg width="15" height="15" aria-hidden="true" class="sh-circle-svg">
+            <circle cx="7.5" cy="7.5" r="7.5" fill="#FFD700"></circle>
+            <circle cx="7.5" cy="7.5" r="4" fill="#FFD700"></circle>
+          </svg>
+          <p class="sh-cart-count">Nur noch wenige vorbestellbar</p>
+        </div>
+      </div>
+
+      <div class="diathera-info-box">
+        <strong>91 % der Kunden wählen 3x den Fußspray</strong>, um für 3 Monate versorgt zu sein und blicken nach 3 Monaten mit einem <strong>Strahlen auf ihre Füße.</strong>
+      </div>
+
+      <button class="diathera-btn" onclick="nextStep(2)">Weiter</button>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="step-2" class="diathera-step">
+      <h3>2. Wähle den Duft</h3>
+      <div class="diathera-option" onclick="selectRadio(this)">
+        <label><input type="radio" name="scent" value="zeder" checked> Zeder</label>
+      </div>
+<div class="diathera-option" onclick="selectRadio(this)">
+  <label><input type="radio" name="scent" value="rosmarin" checked> Rosmarin & Ingwer</label>
+</div>
+
+      <button class="diathera-btn" onclick="nextStep(3)">Weiter</button>
+      <button class="diathera-btn-secondary" onclick="nextStep(1)">Zurück</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div id="step-3" class="diathera-step">
+      <h3>20 % Rabatt & priorisierter Versand?</h3>
+
+      <div class="diathera-info-box">
+        <strong>Jetzt im flexiblen Sparabo kaufen.</strong><br>
+        <strong>Priorisierter Versand.</strong><br>
+        <strong>Jederzeit kündbar und retournierbar.</strong>
+      </div>
+
+      <div class="diathera-option" onclick="selectRadio(this)">
+        <label>
+          <input type="radio" name="abo" value="abo" checked>
+          <strong>Ja, weitere 20% Rabatt aktivieren (flexibles Sparabo)</strong>
+
+          <div class="sh-cart-counter-container" style="margin-top: 8px;">
+            <svg width="15" height="15" aria-hidden="true" class="sh-circle-svg">
+              <circle cx="7.5" cy="7.5" r="7.5" fill="#00FF7F"></circle>
+              <circle cx="7.5" cy="7.5" r="4" fill="#00FF7F"></circle>
+            </svg>
+            <p class="sh-cart-count">Über 80% der Kunden wählen das Sparabo.</p>
+          </div>
+
+          <div class="sh-cart-counter-container" style="margin-top: 4px;">
+            <svg width="15" height="15" aria-hidden="true" class="sh-circle-svg">
+              <circle cx="7.5" cy="7.5" r="7.5" fill="#00FF7F"></circle>
+              <circle cx="7.5" cy="7.5" r="4" fill="#00FF7F"></circle>
+            </svg>
+            <p class="sh-cart-count">Automatisch geliefert, bevor es leer ist.</p>
+          </div>
+    <div class="sh-cart-counter-container" style="margin-top: 4px;">
+      <svg width="15" height="15" aria-hidden="true" class="sh-circle-svg">
+        <circle cx="7.5" cy="7.5" r="7.5" fill="#00FF7F"></circle>
+        <circle cx="7.5" cy="7.5" r="4" fill="#00FF7F"></circle>
+      </svg>
+      <p class="sh-cart-count">Sparabo jederzeit kündbar, auch nach Lieferung.</p>
+    </div>
+        </label>
+      </div>
+
+      <div class="diathera-option" onclick="selectRadio(this)">
+        <label><input type="radio" name="abo" value="once"> Nein, nur einmal kaufen (ohne weiteren Rabatt)</label>
+      </div>
+
+      <div id="delivery-interval" style="margin-top:1rem;">
+        <h4>Lieferintervall wählen:</h4>
+        <select id="interval-select">
+          <option value="1">Jeden Monat</option>
+          <option value="2">Alle 2 Monate</option>
+          <option value="3">Alle 3 Monate</option>
+        </select>
+      </div>
+
+      <div style="margin-top:1rem;">
+        <div id="savings-info" style="font-weight:bold;">Deine Ersparnis: …</div>
+        <div id="discounted-price" style="margin-top:0.5rem; font-weight:bold;">
+          Preis: <span id="price-display">…</span> <span id="shipping-display">…</span>
+        </div>
+      </div>
+
+      <button class="diathera-btn" onclick="addToCart()">In den Warenkorb legen</button>
+      <button class="diathera-btn-secondary" onclick="nextStep(2)">Zurück</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const variantMap = {
+  '1m-rosmarin': '51079319486805',
+  '1m-zeder': '51079319519573',
+  '2m-rosmarin': '51079319421269',
+  '2m-zeder': '51079319454037',
+  '3m-rosmarin': '51079319355733',
+  '3m-zeder': '51079319388501'
+};
+
+const basePrices = { '1m': 29.99, '2m': 0.00, '3m': 54.99 };
+const comparePrices = { '1m': 29.99, '2m': 0.00, '3m': 79.99 };
+const sellingPlans = {
+  '1': '690653790549',
+  '2': '690653823317',
+  '3': '690653856085'
+};
+
+let selectedSize = '3m';
+const modal = document.getElementById('diathera-modal');
+const button = document.getElementById('open-diathera-modal');
+
+function openModal(event) {
+    event.stopPropagation();
+    modal.style.display = 'block';
+    
+    const randomCount = getRandomInt(3, 6);
+    const el3 = document.querySelector('[data-cart-count="3m"]');
+    if (el3) {
+        el3.textContent = randomCount;
+        console.log("✅ cartCount 3m gesetzt:", randomCount);
+    } else {
+        console.warn("❌ cartCount 3m nicht gefunden");
+    }
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    updateIntervalOptions();
+    document.body.classList.add('modal-open');
+
+    setTimeout(() => {
+        const modalRect = modal.getBoundingClientRect();
+        const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+        const modalCenterY = modalRect.top + (modalRect.height / 2);
+        const viewportCenterY = viewportHeight / 2;
+        const isModalCentered = Math.abs(modalCenterY - viewportCenterY) < 100;
+        const isAboveView = modalRect.bottom < 0;
+        const isBelowView = modalRect.top > viewportHeight;
+        const isPartiallyHidden = modalRect.top < 50 || modalRect.bottom > (viewportHeight - 50);
+
+        if (isAboveView || isBelowView || (!isModalCentered && isPartiallyHidden)) {
+            console.log('🔄 Scrolling modal into better position');
+            modal.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }, 100);
+}
+
+button.addEventListener('click', openModal);
+
+function closeModal() {
+  modal.style.display = 'none';
+  document.body.classList.remove('modal-open');
+}
+
+function nextStep(n) {
+  document.querySelectorAll('.diathera-step').forEach(el => el.classList.remove('active'));
+  document.getElementById(`step-${n}`).classList.add('active');
+  updateDiscountedPrice();
+}
+
+function updateDiscountedPrice() {
+  const base = basePrices[selectedSize];
+  const rabatt = base * 0.2;
+  const priceWithAbo = base * 0.8;
+  const useAbo = document.querySelector('input[name="abo"]:checked').value === 'abo';
+  const displayPrice = useAbo ? priceWithAbo : base;
+  document.getElementById('price-display').innerText = displayPrice.toFixed(2).replace('.', ',') + ' €';
+  document.getElementById('shipping-display').innerText = '(kostenloser Versand)';
+  const ersparnisGesamt = rabatt.toFixed(2).replace('.', ',');
+  const ersparnisText = useAbo
+    ? `Deine Ersparnis: ${ersparnisGesamt} €`
+    : `Mögliche Ersparnis beim Sparabo: ${ersparnisGesamt} €`;
+  document.getElementById('savings-info').innerText = ersparnisText;
+  document.getElementById('savings-info').setAttribute(
+    'style',
+    `font-weight: bold; color: ${useAbo ? '#DAA520' : '#E57373'};`
+  );
+}
+
+function updateIntervalOptions() {
+  const intervalSelect = document.getElementById('interval-select');
+  const size = selectedSize;
+  let options = [];
+
+  if (size === '1m') options = [1];
+  else if (size === '2m') options = [1, 2];
+  else options = [1, 2, 3];
+
+  intervalSelect.innerHTML = '';
+  options.forEach(val => {
+    const opt = document.createElement('option');
+    opt.value = val;
+    opt.textContent = val === 1 ? 'Jeden Monat' : `Alle ${val} Monate`;
+    intervalSelect.appendChild(opt);
+  });
+
+  if (size === '3m') {
+    intervalSelect.value = '3';
+  } else {
+    intervalSelect.value = '1';
+  }
+}
+
+document.querySelectorAll('input[name="size"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    selectedSize = this.value;
+    updateDiscountedPrice();
+    updateIntervalOptions();
+  });
+});
+
+document.querySelectorAll('input[name="abo"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('delivery-interval').style.display = this.value === 'abo' ? 'block' : 'none';
+    updateDiscountedPrice();
+  });
+});
+
+function selectRadio(wrapper) {
+  const input = wrapper.querySelector('input');
+  input.checked = true;
+  input.dispatchEvent(new Event('change'));
+}
+
+function addToCart() {
+  const size = document.querySelector('input[name="size"]:checked').value;
+  const scent = document.querySelector('input[name="scent"]:checked').value;
+  const interval = document.getElementById('interval-select').value;
+  const variantId = variantMap[`${size}-${scent}`];
+  const useAbo = document.querySelector('input[name="abo"]:checked').value === 'abo';
+  if (!variantId) {
+    alert('Bitte wähle eine Variante aus.');
+    return;
+  }
+  const body = { id: variantId, quantity: 1 };
+  if (useAbo && sellingPlans[interval]) body.selling_plan = sellingPlans[interval];
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  }).then(() => {
+  if (window.UpCart) {
+    window.UpCart.showCart();
+  } else {
+    console.log('🛒 UpCart nicht gefunden – Cart Drawer wird nicht geöffnet.');
+  }
+});
+
+}
+
+document.addEventListener('click', function(event) {
+  if (!modal.contains(event.target) && event.target !== button) closeModal();
+});
+</script>
+{% endif %}
